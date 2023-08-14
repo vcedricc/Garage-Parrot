@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule (.*) https://www.devced.net/vparrotECF/$1 [R=301,L]
+
+ErrorDocument 404 /page-404.php

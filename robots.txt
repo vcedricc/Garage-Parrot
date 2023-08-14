@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /templates/
+Disallow: /page-404.php
+Disallow: /favicon.ico
+Disallow: /createOpinions.php
+
+Sitemap: http://www.devced.net/vparrotECF/sitemap.xml
