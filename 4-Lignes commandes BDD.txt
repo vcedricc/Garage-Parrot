@@ -1,0 +1,78 @@
+Ligne de commande pour création de la BDD :
+
+CREATE DATABASE parrot;
+CREATE TABLE users (
+    -> id INT,
+    -> user VARCHAR(50),
+    -> password VARCHAR(40),
+    -> role INT(1));
+CREATE TABLE prestations (
+    -> id INT,
+    -> title VARCHAR(50),
+    -> pictures1 VARCHAR(70),
+    -> pictures2 VARCHAR(70),
+    -> textCourt VARCHAR(300),
+    -> underTitle1 VARCHAR(90),
+    -> text1 VARCHAR(300),
+    -> underTitle2 VARCHAR(90),
+    -> text2 VARCHAR(300),
+    -> text3 LONGTEXT,
+    -> price VARCHAR(12),
+    -> duration VARCHAR(10),
+    -> notation DECIMAL(1,1));
+CREATE TABLE office (
+    -> id INT,
+    -> phone INT(10),
+    -> address VARCHAR(50),
+    -> mail VARCHAR(50),
+    -> hours VARCHAR(30));
+CREATE TABLE notice (
+    -> id INT,
+    -> name VARCHAR(50),
+    -> firstname VARCHAR(20),
+    -> text LONGTEXT,
+    -> notation INT(255),
+    -> statut INT(2));
+CREATE TABLE vehicules (
+    -> id INT,
+    -> category VARCHAR(10),
+    -> title VARCHAR(50),
+    -> price VARCHAR(12),
+    -> pictures1 VARCHAR(70),
+    -> pictures2 VARCHAR(70),
+    -> pictures3 VARCHAR(70),
+    -> textCourt VARCHAR(300),
+    -> description1 VARCHAR(660),
+    -> description2 LONGTEXT,
+    -> characteristic LONGTEXT);
+ALTER TABLE users
+    -> ADD PRIMARY KEY (id);
+ALTER TABLE prestations
+    -> ADD PRIMARY KEY (id);
+ALTER TABLE prestations
+    -> ADD FOREIGN KEY (notation) REFERENCES notice(notation);
+ALTER TABLE office
+    -> ADD PRIMARY KEY (id);
+ALTER TABLE notice
+    -> ADD PRIMARY KEY (id);
+ALTER TABLE vehicules
+    -> ADD PRIMARY KEY (id);
+INSERT INTO users VALUES (1, 'Admin', 'MP', 1);
+INSERT INTO users VALUES (2, 'User', 'MP2', 0);
+ALTER TABLE users CHANGE id id INT NOT NULL AUTO_INCREMENT; 
+ALTER TABLE prestations CHANGE id id INT NOT NULL AUTO_INCREMENT; 
+ALTER TABLE office CHANGE id id INT NOT NULL AUTO_INCREMENT; 
+ALTER TABLE notice CHANGE id id INT NOT NULL AUTO_INCREMENT; 
+ALTER TABLE vehicules CHANGE id id INT NOT NULL AUTO_INCREMENT; 
+ALTER TABLE office ADD days1 VARCHAR(25);
+ALTER TABLE office ADD days2 VARCHAR(25);
+ALTER TABLE office ADD hours1 VARCHAR(25);
+ALTER TABLE office ADD hours2 VARCHAR(25);
+ALTER TABLE office DELETE hours;
+ALTER TABLE office MODIFY phone VARCHAR(20);
+ALTER TABLE notice ADD prestations VARCHAR(1);
+ALTER TABLE prestations ADD title2 VARCHAR(50);
+ALTER TABLE prestations RENAME COLUMN title TO title1;
+ALTER TABLE vehicules ADD years INT(4);
+ALTER TABLE vehicules ADD km INT(6);
+ALTER TABLE vehicules CHANGE price price DECIMAL(10,2)
