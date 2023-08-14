@@ -9,10 +9,10 @@
 
     // BACKSTRETCH SLIDESHOW
     $('.hero-section').backstretch([
-        "image/slideshow/PexelsCar21.jpg",
-        "image/slideshow/PexelsCar22.jpg",
-        "image/slideshow/PexelsCar23.jpg",
-        "image/slideshow/PexelsCar24.jpg",
+        "./image/slideshow/PexelsCar21.jpg",
+        "./image/slideshow/PexelsCar22.jpg",
+        "./image/slideshow/PexelsCar23.jpg",
+        "./image/slideshow/PexelsCar24.jpg",
     ], { duration: 3000, fade: 750 });
 
     // CUSTOM LINK

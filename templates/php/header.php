@@ -1,3 +1,8 @@
+<?php
+    include 'admin/templates/php/config.php';
+    include_once 'admin/templates/php/officeConnexionBDD.php';
+?>
+
 <header class="site-header" id="header-page">
         <section class="container">
             <div class="row">
@@ -7,11 +12,15 @@
                         Réparation, rénovation et vente de véhicules de luxe et de collection !
                     </p>
 
+                    <?php
+                        $donnees = $rs_select->fetch(PDO::FETCH_ASSOC);
+                    ?>
+
                     <p class="site-header-icon-wrap text-white d-flex mb-0 ms-auto">
                         <i class="site-header-icon bi-whatsapp me-2"></i>
-                        <a href="tel:05 83 83 83 83" class="text-white">
-                                05 83 83 83 83
-                            </a>
+                        <a href="tel:<?= $donnees['phone'] ?>" class="text-white">
+                            <?= $donnees['phone'] ?>
+                        </a>
                     </p>
                 </div>
 

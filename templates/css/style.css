@@ -515,7 +515,6 @@ strong {
     color: var(--white-color);
 }
 
-
 /*---------------------------------------
   CUSTOM ICON COLOR               
 -----------------------------------------*/
@@ -530,7 +529,7 @@ strong {
 
 
 /*---------------------------------------
-  AVATAR IMAGE - TESTIMONIAL               
+  AVATAR IMAGE - OPINIONS              
 -----------------------------------------*/
 
 .avatar-image {
@@ -554,7 +553,7 @@ strong {
     font-weight: var(--font-weight-normal);
     line-height: normal;
     transition: all 0.3s;
-    padding: 15px 25px;
+    padding: 15px
 }
 
 .navbar-expand-lg .navbar-nav .nav-link.custom-btn {
@@ -667,7 +666,6 @@ strong {
 
 .dropdown-item {
     display: inline-block;
-    /*color: var(--p-bg-color);*/
     font-size: var(--menu-font-size);
     font-weight: var(--font-weight-medium);
     position: relative;
@@ -831,6 +829,10 @@ strong {
 .hero-section .container {
     position: relative;
     z-index: 2;
+}
+
+.margin-right-hero-section {
+    margin-right: 1.5rem;
 }
 
 .hero-section svg {
@@ -1004,10 +1006,6 @@ strong {
     background: var(--section-bg-color);
 }
 
-.services-detail-section .services-image {
-    aspect-ratio: 0;
-}
-
 .services-image-wrap {
     border-radius: var(--border-radius-small);
     position: relative;
@@ -1026,7 +1024,6 @@ strong {
 .team-image {
     border-radius: var(--border-radius-small);
     display: block;
-    aspect-ratio: 1;
     object-fit: cover;
     transition: all 0.5s;
 }
@@ -1061,13 +1058,12 @@ strong {
     margin-top: 1.5em;
 }
 
-
 /*---------------------------------------
   TESTIMONIAL              
 -----------------------------------------*/
 
 .testimonial-section {
-    background-image: url('../images/coffe-shop-with-wooden-walls-unfocused.jpg');
+    background-image: url('../../image/coffe-shop-with-wooden-walls-unfocused.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -1180,7 +1176,7 @@ strong {
 -----------------------------------------*/
 
 .custom-form .form-control,
-.input-group-file {
+.input-group-file, .form-select {
     color: var(--p-color);
     margin-bottom: 24px;
     padding-top: 13px;
@@ -1476,6 +1472,13 @@ strong {
     transform: translate3d(0, 100%, 0);
 }
 
+/*---------------------------------------
+  CREATE OPINIONS              
+-----------------------------------------*/
+
+.background-header-opinions {
+    background-color: var(--secondary-color);
+}
 
 /*---------------------------------------
   RESPONSIVE STYLES               
@@ -1484,6 +1487,20 @@ strong {
 @media screen and (min-width: 1600px) {
     .intro-section {
         padding-top: 0;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .margin-right-hero-section {
+        margin-bottom: 1rem;
+        margin-right: 0;
+    }
+    .services-md-max {
+        max-width: 100%;
+    }
+    .marquee__inner span {
+        font-size: 16px;
+        padding: 0.5rem;
     }
 }
 
@@ -1548,6 +1565,21 @@ strong {
     .custom-block-wrap .custom-block {
         right: 12px;
     }
+    .align-range {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .margin-range {
+        margin-right: 5rem;
+    }
+    .clean-text {
+        width: 90%;
+        margin-left: 1.5rem;
+    }
+    .partners-image {
+        margin-bottom: 2rem;
+    }
     .site-footer {
         padding-top: 50px;
     }
@@ -1561,6 +1593,11 @@ strong {
     .site-footer-bottom .footer-menu {
         margin-top: 10px;
         margin-bottom: 10px;
+    }
+
+    .featured-block {
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
     }
 }
 
@@ -1588,6 +1625,13 @@ strong {
         right: 0;
         left: 0;
     }
+    .align-range {
+        width: 40%;
+    }
+    .margin-range {
+        margin-left: auto;
+        margin-right: auto;
+    }
     .social-icon-item {
         padding-bottom: 0;
     }
@@ -1599,6 +1643,9 @@ strong {
 @media screen and (max-width: 500px) {
     .custom-border-btn {
         margin-bottom: 1em;
+    }
+    .align-range {
+        width: 50%;
     }
 }
 
@@ -1617,5 +1664,11 @@ strong {
     }
     h5 {
         font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .align-range {
+        width: 60%;
     }
 }

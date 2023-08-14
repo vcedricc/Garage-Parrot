@@ -22,13 +22,21 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Nos prestations</a>
 
+                        <?php
+                                include_once './admin/templates/php/prestationsConnexionBDD.php';
+                        ?>
+
                         <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
 
-                            <li><a class="dropdown-item" href="mechanic.php">Atelier mécanique</a></li>
+                            <?php
+                                while($donnees = $rs_select->fetch(PDO::FETCH_ASSOC)) {
+                            ?>
 
-                            <li><a class="dropdown-item" href="body.php">Atelier carrosserie</a></li>
+                            <li><a class="dropdown-item" href="prestationsDetails.php?id=<?php echo $donnees['id']; ?>"><?= $donnees['title1'] ?></a></li>
 
-                            <li><a class="dropdown-item" href="cleaning.php">Nettoyage haut de gamme</a></li>
+                            <?PHP
+                                }
+                            ?>
 
                         </ul>
                     </li>

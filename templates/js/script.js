@@ -1,53 +1,66 @@
-// Select link navbar
-var currentUrl = window.location.pathname;
-var menuItems = document.querySelectorAll('.navbar-nav .nav-link');
+// Function to format the price elements with the structure 70 000,00
 
-for (var i = 0; i < menuItems.length; i++) {
-  var menuItem = menuItems[i];
-
-  if (menuItem.innerText === 'Accueil' || menuItem.innerText === 'Nos véhicules' || menuItem.innerText === 'Nos prestations' || menuItem.innerText === 'Nous contacter') {
-    if (currentUrl.includes(menuItem.getAttribute('href'))) {
-      menuItem.classList.add('active');
-    }
-  }
-
-  if (menuItem.innerText === 'Atelier mécanique' || menuItem.innerText === 'Atelier carrosserie' || menuItem.innerText === 'Nettoyage haut de gamme') {
-    var parentItem = menuItem.closest('.dropdown');
-    if (parentItem) {
-      var parentLink = parentItem.querySelector('.nav-link');
-      parentLink.classList.add('active');
-
-      var dropdownToggle = parentItem.querySelector('.dropdown-toggle');
-      dropdownToggle.classList.add('active');
-    }
-  }
+function formatPriceElements() {
+  let priceElements = document.querySelectorAll(".price");
+  priceElements.forEach(function (element) {
+    let price = parseFloat(element.textContent);
+    price = price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace(".", ",");
+    element.textContent = price + " €";
+  });
 }
+
+formatPriceElements();
 
 // Function to update the value of the range
+
 function updateRangeValue(rangeId, valueId) {
-    var range = document.getElementById(rangeId);
-    var value = document.getElementById(valueId);
-    value.textContent = range.value;
+  let range = document.getElementById(rangeId);
+  let value = document.getElementById(valueId);
+
+  if (rangeId === 'priceRange' || rangeId === 'priceValue') {
+      let formatter = new Intl.NumberFormat('fr-FR', { minimumFractionDigits: 2 });
+      value.textContent = formatter.format(parseFloat(range.value));
+      range.setAttribute('data-price', range.value);
+  } else {
+      value.textContent = range.value;
+  }
 }
 
-// Update the range values on input change
-document.getElementById('priceRange').addEventListener('input', function() {
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("priceRange").addEventListener("input", function() {
     updateRangeValue('priceRange', 'priceValue');
-});
-
-document.getElementById('mileageRange').addEventListener('input', function() {
+    filterResults();
+  });
+  document.getElementById("mileageRange").addEventListener("input", function() {
     updateRangeValue('mileageRange', 'mileageValue');
-});
-
-document.getElementById('yearRange').addEventListener('input', function() {
+    filterResults();
+  });
+  document.getElementById("yearRange").addEventListener("input", function() {
     updateRangeValue('yearRange', 'yearValue');
+    filterResults();
+  });
 });
 
+// function search
 
+function filterResults() {
+  let searchInput = document.getElementById("searchInput").value.toLowerCase();
+  let priceValue = parseFloat(document.getElementById("priceRange").getAttribute("data-price"));
+  let mileageValue = parseFloat(document.getElementById("mileageRange").value);
+  let yearValue = parseFloat(document.getElementById("yearRange").value);
 
+  let items = document.querySelectorAll(".vignetteAuto");
 
+  items.forEach(function (item) {
+    let title = item.querySelector(".title").textContent.toLowerCase();
+    let price = parseFloat(item.querySelector(".price").getAttribute("data-price"));
+    let km = parseFloat(item.querySelector(".km").textContent);
+    let year = parseFloat(item.querySelector(".years").textContent);
 
-
-
-
-
+    if (title.includes(searchInput) && price <= priceValue && km <= mileageValue && year <= yearValue) {
+      item.style.display = 'block';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}

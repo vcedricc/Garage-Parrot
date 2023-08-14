@@ -1,3 +1,7 @@
+<?PHP
+    require 'admin/templates/php/officeConnexionBDD.php';
+?>
+
 <footer class="site-footer">
         <div class="container">
             <div class="row">
@@ -16,23 +20,22 @@
                     <h5 class="site-footer-title mb-3">Nos services</h5>
 
                     <ul class="footer-menu">
+
+                        <?php
+                            include './admin/templates/php/prestationsConnexionBDD.php';
+
+                            while($donnees = $rs_select->fetch(PDO::FETCH_ASSOC)) {
+                        ?>
+
                         <li class="footer-menu-item">
-                            <a href="mechanic.php" class="footer-menu-link">
-                                <i class="bi-chevron-double-right footer-menu-link-icon me-2"></i> Atelier mécanique
+                            <a href="prestationsDetails.php?id=<?php echo $donnees['id']; ?>" class="footer-menu-link">
+                                <i class="bi-chevron-double-right footer-menu-link-icon me-2"></i> <?= $donnees['title1'] ?>
                             </a>
                         </li>
 
-                        <li class="footer-menu-item">
-                            <a href="body.php" class="footer-menu-link">
-                                <i class="bi-chevron-double-right footer-menu-link-icon me-2"></i> Atelier carrosserie
-                            </a>
-                        </li>
-
-                        <li class="footer-menu-item">
-                            <a href="cleaning.php" class="footer-menu-link">
-                                <i class="bi-chevron-double-right footer-menu-link-icon me-2"></i> Nettoyage supérieur
-                            </a>
-                        </li>
+                        <?PHP
+                            }
+                        ?>
 
                         <li class="footer-menu-item">
                             <a href="vehicules.php" class="footer-menu-link">
@@ -48,27 +51,34 @@
                     </ul>
                 </div>
 
+                <?php
+                    include './admin/templates/php/officeConnexionBDD.php';
+
+                    $donnees = $rs_select->fetch(PDO::FETCH_ASSOC);
+                ?>
+
                 <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0 mb-md-0">
                     <h5 class="site-footer-title mb-3">Nos bureaux</h5>
 
                     <p class="text-white d-flex mt-3 mb-2">
-                        <i class="bi-geo-alt-fill me-2"></i> 11 rue du Garage, 23000 GUERET, FRANCE
+                        <i class="bi-geo-alt-fill me-2"></i> 
+                        <?= $donnees['address'] ?>
                     </p>
 
                     <p class="text-white d-flex mb-2">
                         <i class="bi-telephone-fill me-2"></i>
 
-                        <a href="tel: 05 83 83 83 83" class="site-footer-link">
-                                05 83 83 83 83
+                        <a href="tel: <?= $donnees['phone'] ?>" class="site-footer-link">
+                                <?= $donnees['phone'] ?>
                             </a>
                     </p>
 
                     <p class="text-white d-flex">
                         <i class="bi-envelope-fill me-2"></i>
 
-                        <a href="mailto:contact@garage-parrot.com" class="site-footer-link">
-                                contact@garage-parrot.com
-                            </a>
+                        <a href="mailto:<?= $donnees['mail'] ?>" class="site-footer-link">
+                            <?= $donnees['mail'] ?>
+                        </a>
                     </p>
 
                     <ul class="social-icon mt-4">
@@ -98,13 +108,14 @@
                 <div class="col-lg-3 col-md-6 col-6 mt-3 mt-lg-0 mt-md-0 hours-bottom-page">
                     <h5 class="text-white mb-3">Horaires d'ouverture</h5>
 
-                    <strong class="d-block text-white mb-1">Du lundi au vendredi</strong>
+                    <strong class="d-block text-white mb-1"><?= $donnees['days1'] ?></strong>
 
-                    <p class="text-white mb-3">8h45 - 12h00, 14h00 - 18h00</p>
+                    <p class="text-white mb-3"><?= $donnees['hours1'] ?></p>
 
-                    <strong class="d-block text-white mb-1">Samedi</strong>
+                    <strong class="d-block text-white mb-1"><?= $donnees['days2'] ?></strong>
 
-                    <p class="text-white mb-0">08h45 - 12h00</p>
+                    <p class="text-white mb-0"><?= $donnees['hours2'] ?></p>
+
                 </div>
             </div>
         </div>
@@ -112,13 +123,9 @@
     </footer>
 
     <!-- JAVASCRIPT FILES -->
-    <script src="../templates/js/jquery.min.js"></script>
-    <script src="../templates/js/bootstrap.min.js"></script>
-    <script src="../templates/js/jquery.backstretch.min.js"></script>
-    <script src="../templates/js/counter.js"></script>
-    <script src="../templates/js/countdown.js"></script>
-    <script src="../templates/js/script.js"></script>
-    <script src="../templates/js/modernizr.js"></script>
-    <script src="../templates/js/animated-headline.js"></script>
-    <script src="../templates/js/custom.js"></script>
-    <script src="../templates/js/jquery.magnific-popup.min.js"></script>
+    <script src="./templates/js/jquery.min.js"></script>
+    <script src="./templates/js/jquery.backstretch.min.js"></script>
+    <script src="./templates/js/nav.js"></script>
+    <script src="./templates/js/bootstrap.min.js"></script>
+    <script src="./templates/js/counter.js"></script>
+    <script src="./templates/js/modernizr.js"></script>
