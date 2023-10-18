@@ -8,19 +8,37 @@
   <body>
   
     <?php
-
+      // Sécurisation du formulaire avec HTML Purifier
+      require('../../htmlPurifier/library/HTMLPurifier.auto.php');
+      
+      $purificateur = new HTMLPurifier();
+    
+      // Vérification du remplissage des champs
       if (isset($_POST['name']) && isset($_POST['mail']) && isset($_POST['subject']) && isset($_POST['message'])) {
-      $name = htmlspecialchars($_POST['name']);
-      $email = htmlspecialchars($_POST['mail']);
-      $subject = htmlspecialchars($_POST['subject']);
-      $message = htmlspecialchars($_POST['message']);
-      $title = $_POST['title'];
 
+      // Sécurisation du formulaire avec HTML Purifier
+      $name = htmlspecialchars($_POST['name']);
+      $name = $purificateur->purify($name);
+
+      $email = htmlspecialchars($_POST['mail']);
+      $email = $purificateur->purify($email);
+
+      $subject = htmlspecialchars($_POST['subject']);
+      $subject = $purificateur->purify($subject);
+
+      $message = htmlspecialchars($_POST['message']);
+      $message = $purificateur->purify($message);
+
+      $title = $_POST['title'];
+      $title = $purificateur->purify($title);
+      
       if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
         // Échappement des caractères spéciaux pour l'affichage dans le mail
-        $name = preg_replace('/[^A-Za-z0-9\-éèà]/', '', $name);
-        $subject = preg_replace('/[^A-Za-z0-9\-éèà]/', '', $subject);
+        $name = preg_replace('/[^A-Za-z0-9\-éèà ]/', '', $name);
+        $subject = preg_replace('/[^A-Za-z0-9\-éèà ]/', '', $subject);
+
+        $return = false;
 
           if (isset($title)) {
             $return = mail('varesanocedric@gmail.com', 'Envoi depuis la page '.$title, 
@@ -32,6 +50,9 @@
 
           if ($return) {
             echo '<h4>Votre message a bien été envoyé.</h4>
+            <h4>Veuillez patienter un instant !</h4>
+            <h4>Redirection en cours...</h4>
+            
             <script>
             function redirectToPreviousPage() {
                 history.back();
