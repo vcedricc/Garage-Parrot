@@ -16,7 +16,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="vehicules.php">Nos véhicules</a>
+                        <a id="navbarVehiculesLink" class="nav-link" href="vehicules.php">Nos véhicules</a>
                     </li>
 
                     <li class="nav-item dropdown">
