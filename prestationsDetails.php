@@ -193,7 +193,7 @@ require_once "./templates/php/head.php";
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <p class="text-white mb-0">
 
-                                                        <i class="bi-cash me-2"></i> voir nos modèles
+                                                        <i class="bi-cash me-2"></i> selon modèle
                                                     </p>
                                                     </p>
                                                 </div>

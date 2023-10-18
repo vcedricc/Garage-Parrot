@@ -37,8 +37,6 @@
 
                 </div>
             </div>
-
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="1" d="M0,224L40,229.3C80,235,160,245,240,250.7C320,256,400,256,480,240C560,224,640,192,720,176C800,160,880,160,960,138.7C1040,117,1120,75,1200,80C1280,85,1360,139,1400,165.3L1440,192L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path></svg>
         </section>
 
 
@@ -115,10 +113,10 @@
                                                         </p>
                                                     </div>
                                                 </div>
-
                                             </a>
                                         </div>
                                     </div>
+                                    
                                     <div class="col-lg-7 col-md-7 col-12 d-flex align-items-center">
                                         <div class="services-info mt-4 mt-lg-0 mt-md-0">
                                             <h4 class="services-title mb-1 mb-lg-2">
@@ -161,7 +159,7 @@
                                             <div class="services-icon-wrap">
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <p class="text-white mb-0">
-                                                        <i class="bi-cash me-2"></i> voir nos modèles
+                                                        <i class="bi-cash me-2"></i> selon modèle
                                                     </p>
                                                 </div>
                                             </div>
