@@ -824,6 +824,7 @@ strong {
     padding-top: 100px;
     padding-bottom: 100px;
     min-height: 680px;
+    clip-path: polygon(50% 0%, 100% 0, 100% 94%, 51% 100%, 0 94%, 0 0);
 }
 
 .hero-section .container {
@@ -1000,6 +1001,14 @@ strong {
     overflow: hidden;
     margin-bottom: 24px;
     padding: 30px;
+    border: 0.5px;
+    border-style: inset;
+    border-color: var(--custom-btn-bg-hover-color);
+    transition: all 0.3s;
+}
+
+.services-thumb:hover {
+    scale: 1.2;
 }
 
 .services-thumb.section-bg {
@@ -1611,9 +1620,6 @@ strong {
     .custom-btn {
         font-size: 14px;
         padding: 10px 20px;
-    }
-    .hero-section svg {
-        bottom: 0;
     }
     .team-info::before {
         border-top: 0;
