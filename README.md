@@ -17,23 +17,25 @@ INSTALLATION :
   -d/ 3-Diagramme BDD.png ;
   -e/ 4-Lignes commandes BDD.txt.
 
-4/ Procéder à la configuration de votre Base De Données (BDD)  :
+4/ Télécharger HTML Purifier sur le site officiel (htmlpurifier.org) et dézipper le fichier à la source de votre site web.
+
+5/ Procéder à la configuration de votre Base De Données (BDD)  :
   -a/ soit avec la commande :
   mysql -u[utilisateur] -p[mot_de_passe] [nom_base_de_donnees] < parrot.sql
   -b/ soit en utilisant la fonction "Importer" de PhpMyAdmin si vous utilisez MySQL ;
   -c/ soit en reprenant les lignes de commandes figurant dans le fichier "4-Lignes de commandes BDD.txt" dans la console de votre BDD.
 
-5/ Vérifier le fonctionnement du site
+6/ Vérifier le fonctionnement du site
   Si celui-ci fonctionne, vous pouvez essayer de rajouter le fichier ".htaccess.txt" sur le serveur.
   Dans le cas d'une anomalie après le dépôt de ce fichier (en général un problème d'accès au site), le supprimer de votre serveur.
 
-6/ Aller dans l'interface administrateur :
+7/ Aller dans l'interface administrateur :
   A partir de votre navigateur, aller dans le répertoire /admin ;
   Connecter vous à l'interface en tant qu'administrateur :
     - Identifiant : Admin ;
     - Mot de passe : MP.
   
-7/ Changer les identifiants et mots de passe des comptes "Admin" et "User" dans la partie "Gestion des comptes".
+8/ Changer les identifiants et mots de passe des comptes "Admin" et "User" dans la partie "Gestion des comptes".
 
 -------------------------------------------------------------------------------------------------------------------
 
@@ -54,20 +56,22 @@ INSTALLATION :
   -d/ 3-BDD Diagram.png;
   -e/ 4-Line commands BDD.txt.
 
-4/ Proceed with the configuration of your Database (BDD):
+4/ Download HTML Purifier from the official website (htmlpurifier.org) and unzip the file at the source of your website.
+
+5/ Proceed with the configuration of your Database (BDD):
   -a/ either with the command:
   mysql -u[user] -p[password] [database_name] < parrot.sql
   -b/ either by using the "Import" function of PhpMyAdmin if you are using MySQL;
   -c/ or by using the command lines appearing in the file "4-BDD command lines.txt" in the console of your BDD.
 
-5/ Check the operation of the site
+6/ Check the operation of the site
   If it works, you can try adding the ".htaccess.txt" file to the server.
   In the case of an anomaly after the deposit of this file (generally a problem of access to the site), delete it from your server.
 
-6/ Go to the administrator interface:
+7/ Go to the administrator interface:
   From your browser, go to the /admin directory;
   Log in to the interface as an administrator:
     - Login: Admin;
     - Password: PM.
   
-7/ Change the identifiers and passwords of the "Admin" and "User" accounts in the "Gestion des comptes" section.
+8/ Change the identifiers and passwords of the "Admin" and "User" accounts in the "Gestion des comptes" section.
